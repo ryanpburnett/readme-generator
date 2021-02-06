@@ -1,58 +1,62 @@
 const fs = require("fs")
 const inquirer = require("inquirer")
+const chalk = require("chalk")
 
 const questions = () =>
     inquirer
         .prompt([
             {
                 type: "input",
-                message: "What is your name?",
-                name: "name",
+                message: "What is your project name?",
+                name: "projName",
             },
             {
                 type: "input",
-                message: "Where do you live?",
-                name: "location",
+                message: "Please type a description of your project.",
+                name: "projDescription",
             },
             {
                 type: "input",
-                message: "What is something interesting about you?",
-                name: "bio",
+                message: "Please list any installation instructions",
+                name: "installation",
             },
             {
                 type: "input",
-                message: "What is your LinkedIn URL?",
-                name: "LinkedIn",
+                message: "Please list how you use your project",
+                name: "usage",
             },
             {
                 type: "input",
-                message: "What is your GitHub URL?",
-                name: "GitHub",
+                message: "How can people contribute to your project?",
+                name: "contributing",
             },
         ])
 
-const html = ({name, location, bio, LinkedIn, GitHub}) => {
-    return`<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mini Project</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    </head>
-    <body>
-        <h1>${name}</h1>
-        <h2>${location}</h2>
-        <h3>${bio}</h3>
-        <p>${LinkedIn}</p>
-        <p>${GitHub}</p>
-    </body>
-    </html>`
+const mdTemplate = ({projName, projDescription, installation, usage, contributing}) => {
+    return `# ${projName}
+
+    ## Description
+
+    ${projDescription}
+    
+    ## Installation
+    
+    ${installation}
+    
+    ## Usage
+    
+    ${usage}
+    
+    ## Contributing
+
+    ${contributing}
+    
+    ## License`
 }
 
 questions()
 // regular expression on .replace
-.then((answers) => fs.writeFile(`${answers.name.toLowerCase().replace(/ /g, "_")}.html`, html(answers), err =>
+.then((answers) => fs.writeFile(`${answers.projName.toLowerCase().replace(/ /g, "_")}.md`, mdTemplate(answers), err =>
     {
         if (err) throw err;
         console.log('File Saved');

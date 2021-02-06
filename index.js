@@ -7,27 +7,27 @@ const questions = () =>
         .prompt([
             {
                 type: "input",
-                message: "What is your project name?",
+                message: chalk.rgb(255, 136, 0).bold("What is your project name?"),
                 name: "projName",
             },
             {
                 type: "input",
-                message: "Please type a description of your project.",
+                message: chalk.rgb(255, 136, 0).bold("Please type a description of your project."),
                 name: "projDescription",
             },
             {
                 type: "input",
-                message: "Please list any installation instructions",
+                message: chalk.rgb(255, 136, 0).bold("Please list any installation instructions."),
                 name: "installation",
             },
             {
                 type: "input",
-                message: "Please list how you use your project",
+                message: chalk.rgb(255, 136, 0).bold("Please list how you use your project."),
                 name: "usage",
             },
             {
                 type: "input",
-                message: "How can people contribute to your project?",
+                message: chalk.rgb(255, 136, 0).bold("How can people contribute to your project?"),
                 name: "contributing",
             },
         ])

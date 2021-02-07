@@ -27,28 +27,31 @@ const questions = () =>
             },
             {
                 type: "input",
+                message: chalk.rgb(255, 136, 0).bold("Please list an path to an image of your project in use."),
+                name: "imagePath",
+            },
+            {
+                type: "input",
                 message: chalk.rgb(255, 136, 0).bold("How can people contribute to your project?"),
                 name: "contributing",
             },
         ])
 
-const mdTemplate = ({projName, projDescription, installation, usage, contributing}) => {
+const mdTemplate = ({projName, projDescription, installation, usage, imagePath, contributing}) => {
     return `# ${projName}
 
     ## Description
-
     ${projDescription}
     
     ## Installation
-    
     ${installation}
     
     ## Usage
-    
     ${usage}
+
+    ![Title](${imagePath})
     
     ## Contributing
-
     ${contributing}
     
     ## License`

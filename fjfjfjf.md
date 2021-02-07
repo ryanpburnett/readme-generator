@@ -9,7 +9,7 @@
     ## Usage
     asdf
 
-    ![Title](dogs.jpg)
+    ![Title](https://github.com/ryanpburnett/readme-generator/blob/main/dogs.jpg?raw=true)
     
     ## Contributing
     asdf

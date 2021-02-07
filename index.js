@@ -17,12 +17,12 @@ const questions = () =>
             },
             {
                 type: "input",
-                message: chalk.rgb(255, 136, 0).bold("Please list any installation instructions."),
+                message: chalk.rgb(255, 136, 0).bold("Any instructions for installation?"),
                 name: "installation",
             },
             {
                 type: "input",
-                message: chalk.rgb(255, 136, 0).bold("Please list how you use your project."),
+                message: chalk.rgb(255, 136, 0).bold("Tell us how you use your project."),
                 name: "usage",
             },
             {
@@ -32,8 +32,13 @@ const questions = () =>
             },
             {
                 type: "input",
-                message: chalk.rgb(255, 136, 0).bold("Please list an path to an image of your project in use."),
+                message: chalk.rgb(255, 136, 0).bold("Images are nice, any pics of your project in use?  (share image path)"),
                 name: "imagePath",
+            },
+            {
+                type: "input",
+                message: chalk.rgb(255, 136, 0).bold("Do you have any dependencies in your project?"),
+                name: "depenencies",
             },
             {
                 type: "input",
@@ -47,16 +52,16 @@ const questions = () =>
             },
         ])
 
-const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, contributing, license}) => {
+const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, dependencies, contributing, license}) => {
     return `# ${projName}
 
 ## Description
 ${projDescription}
 
-## Installation
+### Installation
 ${installation}
 
-## Usage
+### Usage
 ${usage}
 
 \`\`\`
@@ -65,10 +70,13 @@ ${codeSnippet}
 
 ![Title](${imagePath})
 
-## Contributing
+### Dependencies
+${dependencies}
+
+### Contributing
 ${contributing}
 
-## License
+### License
 ${license}
 
 The repo for this readme generator can be found on RPB's [Github](https://github.com/ryanpburnett/readme-generator) page.`

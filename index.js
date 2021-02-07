@@ -40,9 +40,14 @@ const questions = () =>
                 message: chalk.rgb(255, 136, 0).bold("How can people contribute to your project?"),
                 name: "contributing",
             },
+            {
+                type: "input",
+                message: chalk.rgb(255, 136, 0).bold("Any licenses you want to add?"),
+                name: "license",
+            },
         ])
 
-const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, contributing}) => {
+const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, contributing, license}) => {
     return `# ${projName}
 
 ## Description
@@ -64,6 +69,7 @@ ${codeSnippet}
 ${contributing}
 
 ## License
+${license}
 
 The repo for this readme generator can be found on RPB's [Github](https://github.com/ryanpburnett/readme-generator) page.`
 }

@@ -27,6 +27,11 @@ const questions = () =>
             },
             {
                 type: "input",
+                message: chalk.rgb(255, 136, 0).bold("Any code snippets you want to share?"),
+                name: "codeSnippet",
+            },
+            {
+                type: "input",
                 message: chalk.rgb(255, 136, 0).bold("Please list an path to an image of your project in use."),
                 name: "imagePath",
             },
@@ -37,24 +42,30 @@ const questions = () =>
             },
         ])
 
-const mdTemplate = ({projName, projDescription, installation, usage, imagePath, contributing}) => {
+const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, contributing}) => {
     return `# ${projName}
 
-    ## Description
-    ${projDescription}
-    
-    ## Installation
-    ${installation}
-    
-    ## Usage
-    ${usage}
+## Description
+${projDescription}
 
-    ![Title](${imagePath})
-    
-    ## Contributing
-    ${contributing}
-    
-    ## License`
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+\`\`\`
+${codeSnippet}
+\`\`\`
+
+![Title](${imagePath})
+
+## Contributing
+${contributing}
+
+## License
+
+The repo for this readme generator can be found on RPB's [Github](https://github.com/ryanpburnett/readme-generator) page.`
 }
 
 questions()

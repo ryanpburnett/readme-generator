@@ -50,10 +50,19 @@ const questions = () =>
                 message: chalk.rgb(255, 136, 0).bold("Any licenses you want to add?"),
                 name: "license",
             },
+            {
+                type: "input",
+                message: chalk.rgb(255, 136, 0).bold("Please add a link to your GitHub profile"),
+                name: "github",
+            },
+
         ])
 
-const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, dependencies, contributing, license}) => {
+const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, dependencies, contributing, license, github}) => {
     return `# ${projName}
+
+### License
+${license}
 
 ## Description
 ${projDescription}
@@ -76,8 +85,8 @@ ${dependencies}
 ### Contributing
 ${contributing}
 
-### License
-${license}
+### GitHub Link
+${github}
 
 The repo for this readme generator can be found on RPB's [Github](https://github.com/ryanpburnett/readme-generator) page.`
 }

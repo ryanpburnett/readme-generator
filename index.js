@@ -38,7 +38,7 @@ const questions = () =>
             {
                 type: "input",
                 message: chalk.rgb(255, 136, 0).bold("Do you have any dependencies in your project?"),
-                name: "depenencies",
+                name: "dependencies",
             },
             {
                 type: "input",
@@ -46,8 +46,13 @@ const questions = () =>
                 name: "contributing",
             },
             {
-                type: "input",
+                type: "checkbox",
                 message: chalk.rgb(255, 136, 0).bold("Any licenses you want to add?"),
+                choices: [
+                    {name: "Apache 2.0"},
+                    {name: "GNU General Public Licence"},
+                    {name: "MIT Licence"},
+                ],
                 name: "license",
             },
             {

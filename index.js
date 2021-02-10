@@ -66,11 +66,19 @@ const questions = () =>
 const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, dependencies, contributing, license, github}) => {
     return `# ${projName}
 
-### License
-${license}
+[Description](#description)\n
+[Licence](#license)\n
+[Installation](#installation)\n
+[Usage](#usage)\n
+[Dependencies](#dependencies)\n
+[Contributing](#contributing)\n
+[GitHub Link](#github-link)\n
 
 ## Description
 ${projDescription}
+
+### License
+${license}
 
 ### Installation
 ${installation}

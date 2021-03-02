@@ -26,7 +26,7 @@ const questions = () =>
                 name: "usage",
             },
             {
-                type: "input",
+                type: "editor",
                 message: chalk.rgb(255, 136, 0).bold("Any code snippets you want to share?"),
                 name: "codeSnippet",
             },
@@ -105,9 +105,20 @@ The repo for this readme generator can be found on RPB's [Github](https://github
 }
 
 questions()
-// regular expression on .replace
-.then((answers) => fs.writeFile(`${answers.projName.toLowerCase().replace(/ /g, "_")}.md`, mdTemplate(answers), err =>
+
+.then((answers) => fs.writeFile("README.md", mdTemplate(answers), err =>
     {
         if (err) throw err;
         console.log('File Saved');
     }))
+
+
+// This code is if you want a readme filename that is the same as the project name
+
+// questions()
+
+// .then((answers) => fs.writeFile(`${answers.projName.toLowerCase().replace(/ /g, "_")}.md`, mdTemplate(answers), err =>
+//     {
+//         if (err) throw err;
+//         console.log('File Saved');
+//     }))

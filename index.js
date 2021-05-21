@@ -12,6 +12,11 @@ const questions = () =>
             },
             {
                 type: "input",
+                message: chalk.rgb(255, 136, 0).bold("Copy and paste a deployed link here."),
+                name: "link",
+            },
+            {
+                type: "input",
                 message: chalk.rgb(255, 136, 0).bold("Please type a description of your project."),
                 name: "projDescription",
             },
@@ -63,9 +68,10 @@ const questions = () =>
 
         ])
 
-const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet, imagePath, dependencies, contributing, license, github}) => {
+const mdTemplate = ({projName, link, projDescription, installation, usage, codeSnippet, imagePath, dependencies, contributing, license, github}) => {
     return `# ${projName}
 
+[Link](#link)\n
 [Description](#description)\n
 [Licence](#license)\n
 [Installation](#installation)\n
@@ -73,6 +79,10 @@ const mdTemplate = ({projName, projDescription, installation, usage, codeSnippet
 [Dependencies](#dependencies)\n
 [Contributing](#contributing)\n
 [GitHub Link](#github-link)\n
+
+
+## Link
+${link}
 
 ## Description
 ${projDescription}
